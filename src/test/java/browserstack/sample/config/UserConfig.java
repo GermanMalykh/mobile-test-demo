@@ -17,4 +17,8 @@ public interface UserConfig extends Config {
     @DefaultValue("http://hub.browserstack.com/wd/hub")
     String remoteUrl();
 
+    @Key("localUrl")
+    @DefaultValue("http://localhost:4723/wd/hub")
+    String localUrl();
+
 }

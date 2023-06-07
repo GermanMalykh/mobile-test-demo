@@ -35,7 +35,8 @@ dependencies {
             "io.qameta.allure:allure-rest-assured:$allureVersion",
             "org.junit.jupiter:junit-jupiter:5.9.2",
             "org.slf4j:slf4j-simple:$slf4jVersion",
-            "org.aeonbits.owner:owner:${ownerVersion}"
+            "org.aeonbits.owner:owner:${ownerVersion}",
+            "commons-io:commons-io:2.12.0"
     )
 }
 
@@ -51,14 +52,30 @@ tasks.withType(Test) {
     }
 }
 
-task ios(type: Test) {
+task remote_ios(type: Test) {
     useJUnitPlatform {
         includeTags("ios")
+        excludeTags("local")
     }
 }
 
-task android(type: Test) {
+task remote_android(type: Test) {
     useJUnitPlatform {
         includeTags("android")
+        excludeTags("local")
+    }
+}
+
+task local_ios(type: Test) {
+    useJUnitPlatform {
+        includeTags("ios")
+        excludeTags("remote")
+    }
+}
+
+task local_android(type: Test) {
+    useJUnitPlatform {
+        includeTags("android")
+        excludeTags("remote")
     }
 }
