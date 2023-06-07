@@ -20,7 +20,7 @@ public class SearchWikiTest extends TestBase {
         step("Переходим к поиску", () -> {
             $(accessibilityId("Search Wikipedia")).click();
         });
-        step("Вводим слово для поиска", () -> {
+        step("Устанавливаем параметры поиска", () -> {
             $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("java");
         });
         step("Проверяем, что результаты поиска не равны нулю", () -> {
