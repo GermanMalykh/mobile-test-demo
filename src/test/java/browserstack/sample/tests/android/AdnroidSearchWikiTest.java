@@ -15,7 +15,7 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("android")
 @DisplayName("Browserstack test")
-public class SearchWikiTest extends TestBase {
+public class AdnroidSearchWikiTest extends TestBase {
 
     @DisplayName("Тест на поиск")
     @Test

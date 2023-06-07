@@ -12,7 +12,7 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("ios")
 @DisplayName("Browserstack test")
-public class SearchWikiTest extends TestBase {
+public class IosInputTextTest extends TestBase {
 
     @DisplayName("Тест на ввод текста")
     @Test
