@@ -1,6 +1,5 @@
-package helpers;
+package browserstack.sample.helpers;
 
-import static helpers.CustomAllureListener.withCustomTemplates;
 import static io.restassured.RestAssured.given;
 import static java.lang.String.format;
 
@@ -10,7 +9,7 @@ public class Browserstack {
 
         return given()
                 .log().all()
-                .filter(withCustomTemplates())
+                .filter(CustomAllureListener.withCustomTemplates())
                 .auth().basic("germanmalykh_eCmyoJ", "p5pfiQNqXsytd2TaqStP")
                 .when()
                 .get(url)

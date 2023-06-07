@@ -3,7 +3,7 @@ package browserstack.sample.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import browserstack.sample.drivers.BrowserStackMobileDriver;
-import helpers.Attach;
+import browserstack.sample.helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
