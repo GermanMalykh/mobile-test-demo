@@ -13,8 +13,8 @@ public interface UserConfig extends Config {
     @DefaultValue("p5pfiQNqXsytd2TaqStP")
     String key();
 
-    @DefaultValue("http://hub.browserstack.com/wd/hub")
     @Key("remoteUrl")
+    @DefaultValue("http://hub.browserstack.com/wd/hub")
     String remoteUrl();
 
 }

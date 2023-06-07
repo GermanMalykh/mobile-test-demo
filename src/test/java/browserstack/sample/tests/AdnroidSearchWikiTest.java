@@ -1,4 +1,4 @@
-package browserstack.sample.tests.android;
+package browserstack.sample.tests;
 
 import browserstack.sample.tests.TestBase;
 import org.junit.jupiter.api.DisplayName;

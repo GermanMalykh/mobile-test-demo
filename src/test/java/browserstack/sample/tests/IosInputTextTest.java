@@ -1,4 +1,4 @@
-package browserstack.sample.tests.iOS;
+package browserstack.sample.tests;
 
 import browserstack.sample.tests.TestBase;
 import com.codeborne.selenide.Condition;
