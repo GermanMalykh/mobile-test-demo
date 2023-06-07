@@ -22,7 +22,7 @@ public class TestBase {
     }
 
     @BeforeEach
-    void addListener(){
+    void addListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         open();
     }
@@ -30,11 +30,8 @@ public class TestBase {
     @AfterEach
     void afterEach() {
         String sessionId = sessionId().toString();
-//        Attach.screenshotAs("Last screenshot"); // todo
         Attach.pageSource();
-
         closeWebDriver();
-
         Attach.addVideo(sessionId);
     }
 }

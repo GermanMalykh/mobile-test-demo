@@ -39,15 +39,5 @@ public class Attach {
                 + Browserstack.videoUrl(sessionId)
                 + "' type='video/mp4'></video></body></html>";
     }
-//
-//    public static URL getVideoUrl() {
-//        String videoUrl = "https://selenoid.autotests.cloud/video/" + sessionId() + ".mp4";
-////        System.out.println(sessionId());
-//        try {
-//            return new URL(videoUrl);
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
+
 }
