@@ -1,6 +1,5 @@
 package browserstack.sample.tests;
 
-import browserstack.sample.tests.TestBase;
 import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;

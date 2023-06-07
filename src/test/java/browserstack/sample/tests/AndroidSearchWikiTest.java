@@ -1,6 +1,5 @@
 package browserstack.sample.tests;
 
-import browserstack.sample.tests.TestBase;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -15,7 +14,7 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("android")
 @DisplayName("Browserstack test")
-public class AdnroidSearchWikiTest extends TestBase {
+public class AndroidSearchWikiTest extends TestBase {
 
     @DisplayName("Тест на поиск")
     @Test
