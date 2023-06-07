@@ -3,6 +3,7 @@ package browserstack.sample.drivers;
 import browserstack.sample.config.MobileConfig;
 import browserstack.sample.config.UserConfig;
 import com.codeborne.selenide.WebDriverProvider;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
@@ -14,13 +15,8 @@ import java.net.URL;
 
 public class BrowserStackMobileDriver implements WebDriverProvider {
 
-    private final MobileConfig mobileConfig;
-    private final UserConfig userConfig;
-
-    public BrowserStackMobileDriver(MobileConfig mobileConfig, UserConfig userConfig) {
-        this.mobileConfig = mobileConfig;
-        this.userConfig = userConfig;
-    }
+    static MobileConfig mobileConfig = ConfigFactory.create(MobileConfig.class, System.getProperties());
+    static UserConfig userConfig = ConfigFactory.create(UserConfig.class, System.getProperties());
 
     @Nonnull
     @Override
