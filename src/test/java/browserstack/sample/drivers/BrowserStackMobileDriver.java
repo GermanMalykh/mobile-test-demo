@@ -1,5 +1,7 @@
 package browserstack.sample.drivers;
 
+import browserstack.sample.config.MobileConfig;
+import browserstack.sample.config.UserConfig;
 import com.codeborne.selenide.WebDriverProvider;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
@@ -12,8 +14,13 @@ import java.net.URL;
 
 public class BrowserStackMobileDriver implements WebDriverProvider {
 
-    String username = "germanmalykh_eCmyoJ",
-            key = "p5pfiQNqXsytd2TaqStP";
+    private final MobileConfig mobileConfig;
+    private final UserConfig userConfig;
+
+    public BrowserStackMobileDriver(MobileConfig mobileConfig, UserConfig userConfig) {
+        this.mobileConfig = mobileConfig;
+        this.userConfig = userConfig;
+    }
 
     @Nonnull
     @Override
@@ -21,21 +28,20 @@ public class BrowserStackMobileDriver implements WebDriverProvider {
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);
 
-        mutableCapabilities.setCapability("browserstack.user", username);
-        mutableCapabilities.setCapability("browserstack.key", key);
+        mutableCapabilities.setCapability("browserstack.user", userConfig.user());
+        mutableCapabilities.setCapability("browserstack.key", userConfig.key());
 
-        mutableCapabilities.setCapability("app", "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c");
-
-        mutableCapabilities.setCapability("device", "Samsung Galaxy S22 Ultra");
-        mutableCapabilities.setCapability("os_version", "12.0");
+        mutableCapabilities.setCapability("app", mobileConfig.app());
+        mutableCapabilities.setCapability("device", mobileConfig.device());
+        mutableCapabilities.setCapability("os_version", mobileConfig.os_version());
 
         mutableCapabilities.setCapability("project", "Mobile Test Demo");
         mutableCapabilities.setCapability("build", "browserstack-build-demo");
-        mutableCapabilities.setCapability("name", "first_test_demo");
+        mutableCapabilities.setCapability("name", mobileConfig.device() + "_" + mobileConfig.os_version() + "_test");
 
         try {
             return new RemoteWebDriver(
-                    new URL("http://hub.browserstack.com/wd/hub"), mutableCapabilities);
+                    new URL(userConfig.remoteUrl()), mutableCapabilities);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
